@@ -14,7 +14,7 @@ install: ## Install dependencies and register Jupyter kernel
 
 .PHONY: clean
 clean: ## Clean build artifacts, caches, and virtual environment
-	rm -rf .venv dist build *.egg-info llms_playground.egg-info
+	rm -rf .venv dist build *.egg-info
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 	find . -type d -name .ipynb_checkpoints -exec rm -rf {} + 2>/dev/null || true
 

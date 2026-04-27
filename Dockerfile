@@ -4,7 +4,7 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
 WORKDIR /app
 COPY pyproject.toml uv.lock README.md ./
-COPY llms_playground/ llms_playground/
+COPY llmlib/ llmlib/
 
 RUN uv export --no-dev --locked --no-hashes --no-emit-project -o requirements.txt
 RUN uv build --wheel

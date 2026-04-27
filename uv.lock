@@ -1442,6 +1442,7 @@ dependencies = [
     { name = "cliver" },
     { name = "ipykernel" },
     { name = "jupyterlab" },
+    { name = "nest-asyncio" },
     { name = "python-dotenv" },
 ]
 
@@ -1450,6 +1451,7 @@ requires-dist = [
     { name = "cliver", specifier = "==0.1.2" },
     { name = "ipykernel", specifier = ">=6.0" },
     { name = "jupyterlab", specifier = ">=4.0" },
+    { name = "nest-asyncio", specifier = ">=1.5" },
     { name = "python-dotenv", specifier = ">=1.0" },
 ]
 

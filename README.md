@@ -31,7 +31,7 @@ This installs all dependencies and registers a **"LLMs Playground"** Jupyter ker
 ### In a notebook
 
 ```python
-from llms_playground import get_agent
+from llmlib import get_agent
 
 agent = get_agent(default_model="deepseek/deepseek-chat")
 result = agent.chat("Hello!")

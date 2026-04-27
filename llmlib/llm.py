@@ -1,12 +1,17 @@
+import asyncio
 import logging
 from pathlib import Path
 from typing import AsyncIterator, Optional
 
+import nest_asyncio
 from cliver import AgentCore
 from cliver.config import ConfigManager
 from cliver.util import get_config_dir
 
 logger = logging.getLogger(__name__)
+
+# Allow asyncio.run() inside Jupyter's already-running event loop
+nest_asyncio.apply()
 
 
 class PlaygroundAgent:
@@ -45,7 +50,7 @@ class PlaygroundAgent:
         system_message: Optional[str] = None,
         images: Optional[list[str]] = None,
     ) -> str:
-        """Synchronous chat — returns the response text."""
+        """Synchronous chat — works in both scripts and Jupyter notebooks."""
         response = self.core.process_user_input_sync(
             prompt,
             model=model,
@@ -90,7 +95,7 @@ class PlaygroundAgent:
 
 def get_agent(
     default_model: Optional[str] = None,
-    config_dir: Path = None,
+    config_dir: Optional[Path] = None,
 ) -> PlaygroundAgent:
     """Convenience factory for creating a PlaygroundAgent."""
     return PlaygroundAgent(config_dir=config_dir, default_model=default_model)

@@ -179,3 +179,7 @@ tools/tools.json
 config.json
 config.yaml
 .vscode
+
+# local playground notebooks (not shared)
+playground/*
+!playground/.gitkeep
