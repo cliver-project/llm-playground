@@ -178,3 +178,4 @@ tools/tools.json
 .env
 config.json
 config.yaml
+.vscode
