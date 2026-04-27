@@ -22,6 +22,11 @@ USER 1000
 
 WORKDIR /home/playground/work
 COPY --chown=1000:1000 notebooks/ notebooks/
+RUN mkdir -p models vectordb
+
+ENV SENTENCE_TRANSFORMERS_HOME=/home/playground/work/models
+
+VOLUME ["/home/playground/work/models", "/home/playground/work/vectordb"]
 
 EXPOSE 8888
 

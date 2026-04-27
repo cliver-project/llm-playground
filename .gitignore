@@ -171,8 +171,13 @@ cython_debug/
 .pypirc
 
 # these json files should stay at local
-models/models.json
 tools/tools.json
+
+# local embedding models and vector database
+models/*
+!models/.gitkeep
+vectordb/*
+!vectordb/.gitkeep
 
 # .env file contains api_keys which can not be pushed to git.
 .env

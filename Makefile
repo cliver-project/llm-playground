@@ -36,6 +36,8 @@ docker-run: docker-build ## Build and run JupyterLab in Docker
 	docker run --rm -p $(PORT):8888 \
 		--name $(IMAGE_NAME) \
 		-v $(CURDIR)/notebooks:/home/playground/work/notebooks:rw \
+		-v $(CURDIR)/models:/home/playground/work/models:rw \
+		-v $(CURDIR)/vectordb:/home/playground/work/vectordb:rw \
 		-v $(CURDIR)/.env:/home/playground/work/.env:ro \
 		-v $(HOME)/.cliver:/home/playground/.cliver:ro \
 		$(IMAGE_NAME)
