@@ -1,0 +1,40 @@
+# CLIver configuration for LLM Playground
+# Copy this file to ~/.cliver/config.yaml and fill in your API keys.
+# API keys are loaded from environment variables — set them in your shell or .env file.
+
+default_model: deepseek/deepseek-chat
+
+providers:
+  deepseek:
+    type: openai
+    api_url: https://api.deepseek.com/v1
+    api_key: "{{ env.DEEPSEEK_API_KEY }}"
+    rate_limit:
+      requests: 500
+      period: 1h
+    models:
+      - deepseek-chat
+      - name: deepseek-reasoner
+        think_mode: true
+
+  openai:
+    type: openai
+    api_url: https://api.openai.com/v1
+    api_key: "{{ env.OPENAI_API_KEY }}"
+    models:
+      - gpt-4o
+      - gpt-4o-mini
+
+  anthropic:
+    type: anthropic
+    api_url: https://api.anthropic.com
+    api_key: "{{ env.ANTHROPIC_API_KEY }}"
+    models:
+      - claude-sonnet-4-20250514
+
+  ollama:
+    type: ollama
+    api_url: http://localhost:11434
+    models:
+      - llama3
+      - qwen3
