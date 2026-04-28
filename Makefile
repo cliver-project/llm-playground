@@ -7,9 +7,13 @@ help: ## Display this help.
 
 ##@ Setup
 
+.PHONY: sync
+sync: ## Clean-sync the virtualenv with all dependencies (including optional)
+	uv lock --upgrade
+	uv sync --all-extras --reinstall
+
 .PHONY: install
-install: ## Install dependencies and register Jupyter kernel
-	uv sync
+install: sync ## Sync dependencies and register Jupyter kernel
 	uv run python -m ipykernel install --user --name llms-playground --display-name "LLMs Playground"
 
 .PHONY: clean
